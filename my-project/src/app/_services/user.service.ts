@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {User} from '../_models/user';
 import {storeCleanupFn} from '@angular/core/src/render3/instructions';
 
+
 @Injectable()
 export class UserService {
   register(user: User) {
@@ -13,5 +14,9 @@ export class UserService {
     if (username === localStorage.getItem('username') && password === localStorage.getItem('pw')) {
       return username;
     }
+  }
+  logout() {
+    localStorage.removeItem('username');
+    localStorage.removeItem('pw');
   }
 }
