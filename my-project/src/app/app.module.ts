@@ -8,6 +8,8 @@ import {UserService} from './_services/user.service';
 import {routing} from './app.routing';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {TableService} from './_services/table.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import {LoginComponent} from './login/login.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
+    TableService
   ],
   bootstrap: [AppComponent]
 })
