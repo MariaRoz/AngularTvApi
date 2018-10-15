@@ -6,7 +6,10 @@ import {register} from 'ts-node';
 import { UserService } from '../_services/user.service';
 
 
-@Component({templateUrl: 'register.component.html'})
+@Component({
+  templateUrl: 'register.component.html',
+  styleUrls: ['./register.component.css']
+})
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;

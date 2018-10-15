@@ -3,12 +3,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../_services/user.service';
 
-@Component({templateUrl: 'login.component.html'})
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.css']
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
+  IsUserExists = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +46,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate([this.returnUrl]);
     } else {
       this.loading = false;
+      this.IsUserExists = true;
+
     }
   }
 }
