@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TableService} from './_services/table.service';
+import {AuthGuard} from './_guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {TableService} from './_services/table.service';
     HttpClientModule
   ],
   providers: [
+    AuthGuard,
     UserService,
     TableService
   ],
