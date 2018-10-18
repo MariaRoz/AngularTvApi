@@ -11,20 +11,32 @@ import {LoginComponent} from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TableService} from './_services/table.service';
 import {AuthGuard} from './_guard/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule, MatSortModule, MatTableModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {TableComponent} from './home/table/table.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    LoginComponent
-
+    LoginComponent,
+    TableComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     AuthGuard,

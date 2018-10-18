@@ -1,0 +1,28 @@
+<mat-form-field class="search">
+  <input matInput #searchvalue (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+<table matSort matSortDisableClear="true" mat-table [dataSource]="dataSource" >
+  <ng-container matColumnDef="name">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let show"> {{show.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="language">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef [disableClear]="true"> Language </th>
+    <td mat-cell *matCellDef="let show"> {{show.language}} </td>
+  </ng-container>
+  <ng-container matColumnDef="genres">
+    <th  mat-sort-header mat-header-cell *matHeaderCellDef> Genres </th>
+    <td mat-cell *matCellDef="let show"> {{show.genres}} </td>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <th  mat-sort-header mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let show"> {{show.status}} </td>
+  </ng-container>
+  <ng-container matColumnDef="rating">
+    <th  mat-sort-header mat-header-cell *matHeaderCellDef> Rating </th>
+    <td mat-cell *matCellDef="let show"> {{show.rating.average}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<p class="error" *ngIf="error"> Nothing found for '{{searchvalue.value}}' </p>
