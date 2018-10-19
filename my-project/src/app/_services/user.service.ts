@@ -5,6 +5,8 @@ import {User} from '../_models/user';
 @Injectable()
 export class UserService {
   register(user: User) {
+    localStorage.setItem('firstname', user.firstName);
+    localStorage.setItem('lastname', user.lastName);
     localStorage.setItem('username', user.username);
     localStorage.setItem('pw', user.password)
     return user;

@@ -16,6 +16,7 @@ import {MatInputModule, MatSortModule, MatTableModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {TableComponent} from './home/table/table.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     LoginComponent,
     TableComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import {MatSort, MatTableDataSource} from '@angular/material';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TableService} from '../../_services/table.service';
 import {ShowDetail, ShowsResponse} from '../interface';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,10 @@ export class TableComponent implements OnInit {
   error = false;
   dataSource = new MatTableDataSource();
   displayedColumns = ['name', 'language', 'genres', 'status', 'rating'];
-  constructor( private tableService: TableService) {
+  constructor(
+    private tableService: TableService,
+    private router: Router
+  ) {
   }
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
@@ -42,5 +46,9 @@ export class TableComponent implements OnInit {
         this.dataSource.sort = this.sort;
           return this.shows;
         });
+  }
+  selectRow(row) {
+    console.log(row);
+    this.router.navigate(['/' + row.id]);
   }
 }

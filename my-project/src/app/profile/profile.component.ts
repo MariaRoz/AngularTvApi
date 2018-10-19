@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
+import {UserService} from '../_services/user.service';
 import {User} from '../_models/user';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,11 +11,22 @@ import {User} from '../_models/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  profileForm: FormGroup;
+  profileForm = new FormGroup({
+    firstName: new FormControl(localStorage.getItem('firstname')),
+    lastName: new FormControl(localStorage.getItem('lastname')),
+    password: new FormControl(localStorage.getItem('pw'))
+  });
   constructor(
-    private user: User
+    private userService: UserService,
+    private router: Router
   ) { }
+  //   ngOnInit() {
+  //     this.userService.getUser(this.users);
+  //   }
   onSubmit() {
+    this.userService.register(this.profileForm.value);
   }
-
+  onHome() {
+    this.router.navigate(['/']);
+  }
 }

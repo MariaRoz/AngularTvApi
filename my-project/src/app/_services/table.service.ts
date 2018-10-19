@@ -10,4 +10,7 @@ export class TableService {
   getData(i) {
     return this.http.get('http://api.tvmaze.com/search/shows?q=' + i);
   }
+  modalData(id) {
+    return this.http.get('http://api.tvmaze.com/shows' + id);
+  }
 }

@@ -1,1 +1,6 @@
-
+.profile {
+  position: fixed;
+  top: 10px;
+  z-index: 100;
+  left: 75%;
+}

@@ -1,18 +1,33 @@
-<h2>My Profile</h2>
+<button class="menuButton" (click)="onHome()">Home page </button>
+<div class = "profile">
+  <div class="form">
+<h2>Profile</h2>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="firstName">First Name</label>
+    <input type="text" formControlName="firstName"/>
   </div>
   <div class="form-group">
     <label for="lastName">Last Name</label>
-  </div>
-  <div class="form-group">
-    <label for="username">Username</label>
+    <input type="text" formControlName="lastName"/>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
+    <input type="password" formControlName="password"/>
   </div>
   <div class="form-group">
     <button>Save</button>
   </div>
 </form>
+  </div>
+</div>
+
+  <!--<mat-form-field class="example-full-width">-->
+    <!--<input matInput placeholder="First name" value={{users.firstName}}>-->
+  <!--</mat-form-field>-->
+
+  <!--<mat-form-field class="example-full-width">-->
+    <!--<textarea matInput placeholder="Leave a comment"></textarea>-->
+  <!--</mat-form-field>-->
+
+
